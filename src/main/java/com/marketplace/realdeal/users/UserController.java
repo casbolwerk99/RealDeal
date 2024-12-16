@@ -2,6 +2,8 @@ package com.marketplace.realdeal.users;
 
 import java.util.List;
 
+import com.marketplace.realdeal.products.Product;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +26,13 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userRepository.save(user);
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        if (user.getProducts() != null) {
+            for (Product product : user.getProducts()) {
+                product.setUser(user);
+            }
+        }
+
+        return ResponseEntity.ok(userRepository.save(user));
     }
 }
