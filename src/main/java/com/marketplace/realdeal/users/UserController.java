@@ -29,12 +29,6 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody @Valid UserToCreateDto userToCreate) {
-        // if (user.getProducts() != null) {
-        //     for (Product product : user.getProducts()) {
-        //         product.setUser(user);
-        //     }
-        // }
-
         return ResponseEntity.ok(userService.createUser(userToCreate));
     }
 }
