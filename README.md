@@ -19,6 +19,7 @@ JSON BODY
 ### Create user
 
 POST http://localhost:8090/users
+
 ```
 {
 "name": "Sam Al-Habash",
@@ -35,11 +36,13 @@ POST http://localhost:8090/users
 ]
 }
 ```
+
 It will create the user and subsequent products
 
 ### Create product
 
 POST http://localhost:8090/products
+
 ```
 {
     "name": "Socks",
@@ -47,4 +50,9 @@ POST http://localhost:8090/products
     "userId": 7
 }
 ```
+
 Where userId refers to an existing user
+
+## Development
+
+This project uses [Project Lombok](https://projectlombok.org/). Please install the appropriate plugin for your code editor.
