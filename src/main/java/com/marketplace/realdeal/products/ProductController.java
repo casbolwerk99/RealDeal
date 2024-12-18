@@ -2,15 +2,16 @@ package com.marketplace.realdeal.products;
 
 import java.util.List;
 
-import com.marketplace.realdeal.products.dto.ProductRequest;
-import com.marketplace.realdeal.users.User;
-import com.marketplace.realdeal.users.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.marketplace.realdeal.products.dto.ProductRequest;
+import com.marketplace.realdeal.users.User;
+import com.marketplace.realdeal.users.interfaces.UserRepository;
 
 @RestController
 @RequestMapping("/products")

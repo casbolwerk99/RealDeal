@@ -2,7 +2,6 @@ package com.marketplace.realdeal.users;
 
 import java.util.List;
 
-import com.marketplace.realdeal.products.Product;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,29 +9,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.marketplace.realdeal.users.dto.UserToCreateDto;
+import com.marketplace.realdeal.users.interfaces.UserService;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/users")
+@RequiredArgsConstructor
 public class UserController {
 
-    private final UserRepository userRepository;
-
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final UserService userService;
 
     @GetMapping
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        return userService.getAllUsers();
     }
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        if (user.getProducts() != null) {
-            for (Product product : user.getProducts()) {
-                product.setUser(user);
-            }
-        }
+    public ResponseEntity<User> createUser(@RequestBody @Valid UserToCreateDto userToCreate) {
+        // if (user.getProducts() != null) {
+        //     for (Product product : user.getProducts()) {
+        //         product.setUser(user);
+        //     }
+        // }
 
-        return ResponseEntity.ok(userRepository.save(user));
+        return ResponseEntity.ok(userService.createUser(userToCreate));
     }
 }
