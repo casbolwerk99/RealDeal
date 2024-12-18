@@ -10,14 +10,15 @@ import com.marketplace.realdeal.users.interfaces.UserRepository;
 import com.marketplace.realdeal.users.interfaces.UserService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-
     public User createUser(UserToCreateDto userToCreate) {
         var userEmail = userToCreate.getEmail();
         if (userRepository.existsByEmail(userEmail)) {
