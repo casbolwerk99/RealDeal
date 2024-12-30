@@ -1,6 +1,5 @@
 package com.marketplace.realdeal.products;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.marketplace.realdeal.users.User;
 import jakarta.persistence.*;
 import lombok.Getter;

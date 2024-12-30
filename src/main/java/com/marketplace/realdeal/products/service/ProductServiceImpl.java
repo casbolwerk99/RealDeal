@@ -1,21 +1,16 @@
 package com.marketplace.realdeal.products.service;
 
-import java.util.List;
-
 import com.marketplace.realdeal.products.Product;
 import com.marketplace.realdeal.products.dto.ProductToCreateDto;
 import com.marketplace.realdeal.products.interfaces.ProductMapper;
 import com.marketplace.realdeal.products.interfaces.ProductRepository;
 import com.marketplace.realdeal.users.User;
-import org.springframework.stereotype.Service;
-
-import com.marketplace.realdeal.users.dto.UserToCreateDto;
-import com.marketplace.realdeal.users.interfaces.UserMapper;
 import com.marketplace.realdeal.users.interfaces.UserRepository;
-import com.marketplace.realdeal.users.service.UserService;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor

@@ -1,10 +1,6 @@
 package com.marketplace.realdeal.products.dto;
 
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
