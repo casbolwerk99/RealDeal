@@ -1,16 +1,14 @@
-package com.marketplace.realdeal.users;
+package com.marketplace.realdeal.users.service;
 
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
+import com.marketplace.realdeal.users.User;
 import com.marketplace.realdeal.users.dto.UserToCreateDto;
 import com.marketplace.realdeal.users.interfaces.UserMapper;
 import com.marketplace.realdeal.users.interfaces.UserRepository;
-import com.marketplace.realdeal.users.interfaces.UserService;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +17,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+
     public User createUser(UserToCreateDto userToCreate) {
         var userEmail = userToCreate.getEmail();
         if (userRepository.existsByEmail(userEmail)) {
